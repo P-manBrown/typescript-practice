@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/P-manBrown/typescript-practice/issues"
   },
-  "homepage": "https://github.com/P-manBrown/typescript-practice#readme"
+  "homepage": "https://github.com/P-manBrown/typescript-practice#readme",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
 }
