@@ -3,7 +3,6 @@ export {}
 class Person {
   name: string
   age: number
-
   // constructorはreturnしないため返り値の型を指定しない
   constructor(name: string, age: number) {
     this.name = name
