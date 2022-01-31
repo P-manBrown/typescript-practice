@@ -7,7 +7,7 @@ export {}
 
 class Person {
   public name: string
-  private age: number
+  public age: number
   protected nationality: string
   // constructorはreturnしないため返り値の型を指定しない
   constructor(name: string, age: number, nationality: string) {
@@ -37,6 +37,8 @@ console.log(tanaka.name)
 // > Tanaka
 // console.log(tanaka.age)
 // > error TS2341: Property 'age' is private and only accessible within class 'Person'.
-let tanakaA = new Android("Tanaka", 32, "Japan")
-console.log(tanakaA.profile())
-// > error TS2341: Property 'age' is private and only accessible within class 'Person'.
+let kato = new Android("kato", 32, "Japan")
+// console.log(kato.nationality)
+// > error TS2445: Property 'nationality' is protected and only accessible within class 'Person' and its subclasses.
+console.log(kato.profile())
+// name: kato, age: 32, nationality: Japan
