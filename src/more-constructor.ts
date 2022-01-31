@@ -15,5 +15,3 @@ class Person {
 
 const me = new Person("田中", 104)
 console.log(me)
-
-
