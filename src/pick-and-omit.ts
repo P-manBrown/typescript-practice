@@ -13,6 +13,11 @@ type Pick<T, K extends keyof T> = {
 };
 
 type SmallProfile = Omit<DetailedProfile, "height">
+// type SmallProfile = {
+//   name: string;
+//   weight: number;
+// }
+
 // type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 // K = height
 // keyof T = "name" | "height" | "weight"
