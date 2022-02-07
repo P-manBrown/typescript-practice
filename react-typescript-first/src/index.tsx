@@ -11,6 +11,6 @@ import App from './App';
 
 // index.htmlのid=rootの箇所を<App />に置き換える
 ReactDOM.render(
-  <App message="Hello, React!!" />, 
+  <App />, 
   document.getElementById('root')
 );
