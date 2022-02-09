@@ -27,18 +27,30 @@ const Counter: React.FC<{}> = () => {
     setValue((prevState) => prevState - 1)
   }
   
-  const renderTimes = useRef<number>(0)
-  useEffect(() => {
-    renderTimes.current = renderTimes.current + 1
-  })
-  
+  // const renderTimes = useRef<number>(0)
+  // useEffect(() => {
+  //   renderTimes.current = renderTimes.current + 1
+  // })
+  const ref = useRef<HTMLInputElement>(null!)
+  const focusInput = () => {
+    // const current = ref.current
+    // if (current != null) current.focus()
+    // 以下のように記述することができる
+    // ref.current?.focus()
+    // もしくは以下のように記述することができる（初期値の末尾に ! (ノンヌルアサーションオペレーター)を追加する必要がある）
+    ref.current.focus()
+  }
+
 
   return (
     <div>
       <div>value: {value}</div>
       <button onClick={increment}>+1</button>
       <button onClick={decrement}>-1</button>
-      <div>This component was re-rendered {renderTimes.current} times!</div>
+      {/* <div>This component was re-rendered {renderTimes.current} times!</div> */}
+      {/* refに文字列を指定するのは非推奨 */}
+      <input ref={ref} type="text" />
+      <button onClick={focusInput}>Click!!</button>
     </div>
   )
 }
