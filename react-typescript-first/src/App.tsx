@@ -1,5 +1,6 @@
 import React from 'react';
 import Counter from "./Counter"
+import CounterWithReducer from './CounterWithReducer';
 
 interface AppProps {
   message?: string
@@ -7,7 +8,7 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = ({ message }) => {
-  return <div><Counter /></div>;
+  return <div><CounterWithReducer /></div>;
 }
 
 // 以下のように記述することでデフォルト値を設定することが可能（非推奨）
