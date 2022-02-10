@@ -5,3 +5,10 @@ function sayHello (firstName: string) {
 
 let firstName: string = 'Tanaka'
 sayHello(firstName)
+
+// numberを渡すとエラーが発生する
+// let age: number = 29
+// sayHello(age)
+// error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+
+
