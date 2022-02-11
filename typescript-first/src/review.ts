@@ -21,3 +21,18 @@ let color: string = "赤"
 
 // let mynumber: number = "300"
 // 型 'string' を型 'number' に割り当てることはできません。ts(2322)
+
+// 配列
+// 配列に型を指定するためには型[]で指定する
+
+const array: string[] = []
+array.push("Tanaka")
+// array.push(23)
+// error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
+
+// 配列に複数の型がある場合にはUnion型やタプルを用いる
+const mixedArray = ['foo', 1]
+// Union型
+const mixedArrayU: (string|number)[] = ['foo', 1]
+// タプル
+const mixedArrayT: [string, number] = ['foo', 1]
