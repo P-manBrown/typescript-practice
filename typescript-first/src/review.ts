@@ -11,4 +11,6 @@ sayHello(firstName)
 // sayHello(age)
 // error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.
 
+const message = "hello!"
+// ブロック スコープの変数 'message' を再宣言することはできません。
 
