@@ -36,3 +36,18 @@ const mixedArray = ['foo', 1]
 const mixedArrayU: (string|number)[] = ['foo', 1]
 // タプル
 const mixedArrayT: [string, number] = ['foo', 1]
+
+// オブジェクト型
+// キーと型のペアをしてすることで定義する
+let user: { name: string, age: number } = {
+  name: '田中',
+  age: 92
+}
+
+console.log(user.age)
+console.log(user.age)
+
+// オプショナルにするためには?をつける
+let member: { name: string, age?: number } = {
+  name: '田中'
+}
