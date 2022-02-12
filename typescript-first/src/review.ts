@@ -54,7 +54,34 @@ let member: { name: string, age?: number } = {
 
 // 全て許容する場合には any を使用する
 let player: any = { firstName: 'Shohei'}
-player.hello()
-player()
+// player.hello()
+// player()
 player.age = 128
 const n: number = player
+
+// 関数の型定義
+function sayHey(name: string): string {
+  return `Hey!! ${name}`
+}
+console.log(sayHey('Takuya'))
+
+// オプショナルにする
+// デフォルト値を設定する
+function sayFoo(name?: string, greeting: string = "HOOOOO"): string {
+  return `${greeting}!! ${name}`
+}
+console.log(sayFoo())
+console.log(sayFoo('Takeshi', 'Foooooo'))
+
+function printName(firstName: string, formatter: (name: string) => string) {
+  console.log(formatter(firstName))
+}
+
+function formatName(name: string): string {
+  return `Esq.${name}`
+}
+
+printName('Tanaka', formatName)
+
+// アロー関数の型定義
+let sayHoo = (name: string): string => `HOOOO!! ${name}`
