@@ -3,7 +3,7 @@ function sayHello (firstName: string) {
   console.log('Hello ' + firstName)
 }
 
-let firstName: string = 'Tanaka'
+let firstName: string = 'Shohei'
 sayHello(firstName)
 
 // numberを渡すとエラーが発生する
@@ -51,3 +51,10 @@ console.log(user.age)
 let member: { name: string, age?: number } = {
   name: '田中'
 }
+
+// 全て許容する場合には any を使用する
+let player: any = { firstName: 'Shohei'}
+player.hello()
+player()
+player.age = 128
+const n: number = player
