@@ -129,3 +129,16 @@ const age = 10
 // console.log(myCanvas.width)
 // プロパティ 'width' は型 'HTMLElement' に存在しません。ts(2339)
 // 返り値がHTMLElementではなくHTMLCanvasElementであるため上記のエラーが発生する。
+// asを使用することでより具体的な型を指定できる。
+const myCanvas = document.getElementById('main_canvas') as HTMLCanvasElement
+
+// 型アサーションが認められるのは型を具体的にするかより汎化する場合のみ
+// 複雑なアサーションを行いたい場合にうまくいかないことがある
+// そのためanyに変換してから目的の型に変換する。
+// const result = (response as any) as User
+
+// 型アサーションは実行時にエラーが起こる可能性があるため注意が必要
+const hoge: any = 'test'
+const fuga: number = hoge as number
+// コンパイル時にはnumber型として扱っているためエラーが起きない
+// 実行時にはstring型が渡されるためエラーが発生する。
