@@ -123,3 +123,9 @@ const age = 10
 // }
 // 型 'void' を型 'boolean' に割り当てることはできません。ts(2322)
 // 型推論により型を書く煩雑さは軽減されている。
+
+// 型アサーション
+// const myCanvas = document.getElementById('main_canvas')
+// console.log(myCanvas.width)
+// プロパティ 'width' は型 'HTMLElement' に存在しません。ts(2339)
+// 返り値がHTMLElementではなくHTMLCanvasElementであるため上記のエラーが発生する。
