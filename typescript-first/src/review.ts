@@ -102,88 +102,116 @@ export {}
 // // console.log(singBirds('dobato'))
 // // TS2345: Argument of type 'string' is not assignable to parameter of type '(x: string) => string[]'.
 
-// 型推論
-// 明示的な変数の初期化を行うと型推論により自動的に型が決定される
+// // 型推論
+// // 明示的な変数の初期化を行うと型推論により自動的に型が決定される
 
-const age = 10
-// console.log(age.length)
-// プロパティ 'length' は型 '10' に存在しません。ts(2339)
+// const age = 10
+// // console.log(age.length)
+// // プロパティ 'length' は型 '10' に存在しません。ts(2339)
 
-// const user = {
-//   name: "kohei",
-//   age: 32
+// // const user = {
+// //   name: "kohei",
+// //   age: 32
+// // }
+// // console.log(user.age.length)
+// // プロパティ 'length' は型 'number' に存在しません。ts(2339)
+
+// // 代入する先の変数の値の方が決まっていると代入する値と型が一致しない場合にエラーになる。
+// // window.confirmはboolean型を返すためそれ以外はエラーとなる
+// // window.confirm = () => {
+// //   console.log('confirm 関数')
+// // }
+// // 型 'void' を型 'boolean' に割り当てることはできません。ts(2322)
+// // 型推論により型を書く煩雑さは軽減されている。
+
+// // 型アサーション
+// // const myCanvas = document.getElementById('main_canvas')
+// // console.log(myCanvas.width)
+// // プロパティ 'width' は型 'HTMLElement' に存在しません。ts(2339)
+// // 返り値がHTMLElementではなくHTMLCanvasElementであるため上記のエラーが発生する。
+// // asを使用することでより具体的な型を指定できる。
+// const myCanvas = document.getElementById('main_canvas') as HTMLCanvasElement
+
+// // 型アサーションが認められるのは型を具体的にするかより汎化する場合のみ
+// // 複雑なアサーションを行いたい場合にうまくいかないことがある
+// // そのためanyに変換してから目的の型に変換する。
+// // const result = (response as any) as User
+
+// // 型アサーションは実行時にエラーが起こる可能性があるため注意が必要
+// const hoge: any = 'test'
+// const fuga: number = hoge as number
+// // コンパイル時にはnumber型として扱っているためエラーが起きない
+// // 実行時にはstring型が渡されるためエラーが発生する。
+
+// // 型をインラインで記述すると同じ型を再利用しづらく、コード内の記述が煩雑になる。
+// // 型エイリアスによって型の定義に名前をつけることで上記の問題を解決できる。
+// // type 型名 = 型
+// // 型名は大文字にする
+// type Name = string
+
+// type Point = {
+//   x: number
+//   y: number 
 // }
-// console.log(user.age.length)
-// プロパティ 'length' は型 'number' に存在しません。ts(2339)
 
-// 代入する先の変数の値の方が決まっていると代入する値と型が一致しない場合にエラーになる。
-// window.confirmはboolean型を返すためそれ以外はエラーとなる
-// window.confirm = () => {
-//   console.log('confirm 関数')
+// function printPoint(point: Point) {
+//   console.log(`x座標は${point.x}です。`)
+//   console.log(`y座標は${point.y}です。`)
 // }
-// 型 'void' を型 'boolean' に割り当てることはできません。ts(2322)
-// 型推論により型を書く煩雑さは軽減されている。
 
-// 型アサーション
-// const myCanvas = document.getElementById('main_canvas')
-// console.log(myCanvas.width)
-// プロパティ 'width' は型 'HTMLElement' に存在しません。ts(2339)
-// 返り値がHTMLElementではなくHTMLCanvasElementであるため上記のエラーが発生する。
-// asを使用することでより具体的な型を指定できる。
-const myCanvas = document.getElementById('main_canvas') as HTMLCanvasElement
+// printPoint({x: 100, y: 100})
+// // 以下のように型があっていてもプロパティ名が異なればエラーとなる。
+// // printPoint({x: 100, y: 100})
+// // 関数でも型エイリアスを定義できる
+// type Formatter = (a: string) => string
 
-// 型アサーションが認められるのは型を具体的にするかより汎化する場合のみ
-// 複雑なアサーションを行いたい場合にうまくいかないことがある
-// そのためanyに変換してから目的の型に変換する。
-// const result = (response as any) as User
+// function printName(firstName: string, formatter: Formatter) {
+//   console.log(formatter(firstName))
+// }
 
-// 型アサーションは実行時にエラーが起こる可能性があるため注意が必要
-const hoge: any = 'test'
-const fuga: number = hoge as number
-// コンパイル時にはnumber型として扱っているためエラーが起きない
-// 実行時にはstring型が渡されるためエラーが発生する。
+// // オブジェクトのキー名を明記せずに型エイリアスを定義できる
+// // インデックス型
+// // キー名やキー数が事前に定まらないケースで使用する
+// // {[]:型名}
 
-// 型をインラインで記述すると同じ型を再利用しづらく、コード内の記述が煩雑になる。
-// 型エイリアスによって型の定義に名前をつけることで上記の問題を解決できる。
-// type 型名 = 型
-// 型名は大文字にする
-type Name = string
+// type Label = {
+//   [key: string]: string
+// }
 
-type Point = {
+// const labels: Label = {
+//   topTitle: 'トップページのタイトルです',
+//   topSubTitle: 'トップページのサブタイトルです',
+//   topFeatuer: 'トップページの機能です。'
+// }
+// // 以下は値部分の型が合わないためエラーとなる
+// // const hoge: Label = {
+// //   message: 100
+// // }
+
+
+// インターフェース
+// 型エイリアスと似ているがより拡張性の高い機能を持っている
+// クラスと共に用いることが多い
+// interface 型名 {
+//   プロパティ1: 型1
+//   プロパティ2: 型2
+// }
+
+interface Point {
   x: number
-  y: number 
+  y: number
 }
 
 function printPoint(point: Point) {
   console.log(`x座標は${point.x}です。`)
-  console.log(`y座標は${point.y}です。`)
+  console.log(`y座標は${point.x}です。`)
+  console.log(`z座標は${point.z}です。`)
+}
+// 後から追加することができる
+interface Point {
+  z: number
 }
 
-printPoint({x: 100, y: 100})
-// 以下のように型があっていてもプロパティ名が異なればエラーとなる。
 // printPoint({x: 100, y: 100})
-// 関数でも型エイリアスを定義できる
-type Formatter = (a: string) => string
-
-function printName(firstName: string, formatter: Formatter) {
-  console.log(formatter(firstName))
-}
-
-// オブジェクトのキー名を明記せずに型エイリアスを定義できる
-// インデックス型
-// キー名やキー数が事前に定まらないケースで使用する
-// {[]:型名}
-
-type Label = {
-  [key: string]: string
-}
-
-const labels: Label = {
-  topTitle: 'トップページのタイトルです',
-  topSubTitle: 'トップページのサブタイトルです',
-  topFeatuer: 'トップページの機能です。'
-}
-// 以下は値部分の型が合わないためエラーとなる
-// const hoge: Label = {
-//   message: 100
-// }
+// zがないためエラー
+printPoint({x: 100, y: 100, z: 100})
