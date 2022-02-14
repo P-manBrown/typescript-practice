@@ -148,3 +148,42 @@ const fuga: number = hoge as number
 // type 型名 = 型
 // 型名は大文字にする
 type Name = string
+
+type Point = {
+  x: number
+  y: number 
+}
+
+function printPoint(point: Point) {
+  console.log(`x座標は${point.x}です。`)
+  console.log(`y座標は${point.y}です。`)
+}
+
+printPoint({x: 100, y: 100})
+// 以下のように型があっていてもプロパティ名が異なればエラーとなる。
+// printPoint({x: 100, y: 100})
+// 関数でも型エイリアスを定義できる
+type Formatter = (a: string) => string
+
+function printName(firstName: string, formatter: Formatter) {
+  console.log(formatter(firstName))
+}
+
+// オブジェクトのキー名を明記せずに型エイリアスを定義できる
+// インデックス型
+// キー名やキー数が事前に定まらないケースで使用する
+// {[]:型名}
+
+type Label = {
+  [key: string]: string
+}
+
+const labels: Label = {
+  topTitle: 'トップページのタイトルです',
+  topSubTitle: 'トップページのサブタイトルです',
+  topFeatuer: 'トップページの機能です。'
+}
+// 以下は値部分の型が合わないためエラーとなる
+// const hoge: Label = {
+//   message: 100
+// }
