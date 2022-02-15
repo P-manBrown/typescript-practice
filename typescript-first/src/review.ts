@@ -215,3 +215,5 @@ interface Point {
 // printPoint({x: 100, y: 100})
 // zがないためエラー
 printPoint({x: 100, y: 100, z: 100})
+
+
