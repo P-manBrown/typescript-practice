@@ -46,3 +46,25 @@ export {}
 // const mixedArrayU: (string|number)[] = ['aaa', 1]    Union型
 // const mixedArrayT: [string, number] = ["aaa", 2]    タプル型
 
+
+// オブジェクト型
+// オブジェクトとはキーとバリューによるデータ形式のインスタンス
+// {キー名1: 型1; キー名2: 型2; ...}
+// let 変数:{キー名1: 型1; キー名2: 型2; ...} = オブジェクト
+// const 変数:{キー名1: 型1; キー名2: 型2; ...} = オブジェクト
+
+// const user: {name: string; age: number} = {
+//   name: "tanaka",
+//   age: 32
+// }
+
+// console.log(user.name)
+// console.log(user.age)
+
+// オプショナルな型
+// function printName(obj: {firstName: string, lastName?: string}) {
+//   return
+// }
+// キー名の後ろに?がついていると値がなくてもエラーにならない
+// printName({firstName: "takeshi"})
+// printName({firstName: "takeshi", lastName: "tanaka"})
