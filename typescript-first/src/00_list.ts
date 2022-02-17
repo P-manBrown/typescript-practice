@@ -68,3 +68,16 @@ export {}
 // キー名の後ろに?がついていると値がなくてもエラーにならない
 // printName({firstName: "takeshi"})
 // printName({firstName: "takeshi", lastName: "tanaka"})
+
+
+// any
+// anyは特別な型で全ての方を許容する
+// let user: any = { firstName: 'tanaka'}
+// 以下のいずれもエラーは発生しない
+// user.hello()
+// user()
+// user.age = 100
+// user = "こんにちは"
+// 他の型への代入を行ってもエラーにならない
+// const n: number = user
+
