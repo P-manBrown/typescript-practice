@@ -72,6 +72,7 @@ export {}
 
 // any
 // anyは特別な型で全ての方を許容する
+// any型は移行でもなければ基本的には使用しない
 // let user: any = { firstName: 'tanaka'}
 // 以下のいずれもエラーは発生しない
 // user.hello()
@@ -81,3 +82,62 @@ export {}
 // 他の型への代入を行ってもエラーにならない
 // const n: number = user
 
+
+// 関数
+// 関数では引数と戻り値に対して型指定ができる
+// function 関数名(引数1: 型1, 引数2: 型2...): 戻り値の型 {}
+// function sayHello(name: string): string {
+//   return `Hello ${name}`
+// }
+
+// sayHello("tanaka")
+
+// 引数をオプショナルにできる
+// function sayHello(name: string, greeting?: string): string {
+//   return `${greeting} ${name}`
+// }
+
+// sayHello("田中")
+// sayHello("田中", "こんにちは")
+
+// 引数のデフォルト値を指定するには次のようにする
+// function sayHello(name: string, greeting: string = 'こんにちは') {
+//   return `${greeting} ${name}`
+// }
+
+// sayHello("田中")     こんにちは田中
+// sayHello("田中", "こんばんは")    こんばんは田中
+
+// 名前とフォーマット関数を引数として受け取りフォーマットを実行コンソールに出力
+// function printName(firstName: string, formatter: (name: string) => string) {
+//   console.log(formatter(firstName))
+// }
+
+// function formatName(name: string): string {
+//   return `${name} sama`
+// }
+
+// printName("田中", formatName)     田中 sama
+
+// アロー関数の場合
+// (引数名: 引数の型): 戻り値の型 => `hello ${name}`
+// let sayHello = (name: string): string => `hello ${name}`
+
+// 関数を引数に取ることができる
+// 関数の型を指定するには次のようにする
+// 引数名は実際の関数の引数名と対応させる必要はない
+// (引数名: 引数の型) => 戻り値の型
+
+// function genBridsInfo(name: string): string[] {
+//   return name.split('.')
+// }
+
+// 関数の型を利用する
+// (x: string) => string[]
+// function singBirds(birdInfo: (x: string) = string[]): string {
+//   return birdInfo("heto, kiji")[0] + "piyo piyo"
+// }
+
+// console.log(singBirds(genBridsInfo))
+// 以下はエラーになる
+// console.log(singBirds('dobato'))
