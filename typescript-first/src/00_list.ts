@@ -165,3 +165,16 @@ export {}
 // window.confirm = () => {
 //   console.log('confirm')
 // }
+
+
+// 型アサーション
+// 対象となる型に対してより具体的になる型やより汎化される型に変換する
+// 変数名 = 値 as 型
+// const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement
+
+// const result = (response as any) as User
+
+// 型アサーションは実行時にエラーを引き起こす可能性がある
+// const hoge: any = "test"
+// const fuga: number = hoge as number
+// 実行時にはstring型が渡されるためエラーが起きる
