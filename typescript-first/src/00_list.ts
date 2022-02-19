@@ -141,3 +141,27 @@ export {}
 // console.log(singBirds(genBridsInfo))
 // 以下はエラーになる
 // console.log(singBirds('dobato'))
+
+
+// 型推論
+// 明示的に変数の初期化を行うと自動的に型が決定される
+
+// const age = 10
+// 次はエラーになる。（数値にlengthは使用できない）
+// console.log(age.length)
+
+// const user = {
+//   name: "tanaka",
+//   age: 42
+// }
+// 次はエラーになる。（数値にlengthは使用できない）
+// console.log(user.age.length)
+
+// 以上のように型を指定していなくても推論される
+// 関数や配列なども同様に型が推論される
+
+// 代入先の変数の値が決まっている際に代入する値と型が一致しないとエラーになる
+// window.confirm関数の返り値はbooleanであるためboolean以外ではエラーとなる
+// window.confirm = () => {
+//   console.log('confirm')
+// }
