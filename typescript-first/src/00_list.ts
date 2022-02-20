@@ -182,6 +182,7 @@ export {}
 
 // 型エイリアス
 // 型指定の別名を設定する
+// 後から同名の型定義をすることはできない
 // type 型名 = 型
 // type Name = string
 
@@ -223,3 +224,81 @@ export {}
 // const hoge: Label = {
 //   message: 200
 // }
+
+
+// インタフェース
+// 型エイリアスと似た機能。より拡張性が高い
+// interface 型名 {
+//   プロパティ1: 型名1;
+//   プロパティ2: 型名2;
+//   ...
+// }
+
+// 以下のように型定義を拡張できる
+// interface Point {
+//   x: number;
+//   y: number;
+// }
+
+// function printPoint(point: Point) {
+//   console.log(`x座標は${point.x}です`)
+//   console.log(`y座標は${point.y}です`)
+//   console.log(`z座標は${point.z}です`)
+// }
+
+// interface Point {
+//   z: number;
+// }
+
+// 以下はzがないためエラーとなる
+// printPoint({x: 100, y: 100})
+// 以下は問題なし
+// printPoint({x: 100, y: 100, z: 200})
+
+// クラスの振る舞いの型を定義してimplementsを使用してクラスに実装を与えられる
+// interface Point {
+//   x: number;
+//   y: number;
+//   z: number;
+// }
+
+// 次はzが存在しないためエラーとなる
+// class MyPoint implements Point {
+//   x: number;
+//   y: number;
+// }
+
+// 以下のように?を使用してオプショナルなプロパティを定義できる
+// interface Point {
+//   x: number;
+//   y: number;
+//   z?: number;
+// }
+// 以下はエラーは発生しない
+// class MyPoint implements Point {
+//   x: number;
+//   y: number;
+// }
+
+// extendsを使用して他のインタフェースを拡張できる
+// interface Colorful {
+//   color: string;
+// }
+
+// interface Circle {
+//   radius: number;
+// }
+
+// interface ColorfulCircle extends Colorful, Circle {}
+
+// const cc: ColorfulCircle ={
+//   color: "赤",
+//   radius: 20
+// }
+
+// 型エイリアスとインタフェースは似ているが次のような違いがある
+// インタフェースはマッチする型でもその値以外に他のフィールドやメソッドがある
+// 型エイリアスはオブジェクトの型そのものを表すもの
+// オブジェクトそのものではなく、クラスやオブジェクトの一部のプロパティや
+// 関数含む一部の振る舞いを定義するのであれば、インタフェースを使用するべき
+
