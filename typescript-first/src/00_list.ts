@@ -178,3 +178,48 @@ export {}
 // const hoge: any = "test"
 // const fuga: number = hoge as number
 // 実行時にはstring型が渡されるためエラーが起きる
+
+
+// 型エイリアス
+// 型指定の別名を設定する
+// type 型名 = 型
+// type Name = string
+
+// type Point = {
+//   x: number;
+//   y: number;
+// }
+
+// function printPoint(point: Point) {
+//   console.log(`x座標は${point.x}です！`)
+//   console.log(`y座標は${point.y}です！`)
+// }
+
+// printPoint({x: 100, y: 100})
+
+// 関数自体の型も型エイリアスで定義可能
+// type Formatter = (a: string) => string
+
+// function printName(firstName: string, formatter: Formatter) {
+//   console.log(formatter(firstName))
+// }
+
+// インデックス型
+// オブジェクトのキー名を明記せずに型エイリアスを定義できる
+// {[]: 型名}
+
+// type Label = {
+//   [key: string]: string
+// }
+
+// const labels: Label = {
+//   topTitle: "トップページタイトル",
+//   topSubTitle: "トップページサブタイトル",
+//   topFeature1: "トップページ機能1",
+//   topFeature2: "トップページ機能2",
+// }
+
+// 以下は値の型が合わないためエラー
+// const hoge: Label = {
+//   message: 200
+// }
