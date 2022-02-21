@@ -408,3 +408,50 @@ export {}
 //     this.z
 //   }
 // }
+
+
+// 重要な型
+// Enum型/列挙型
+// 名前の追加定数セットを定義できる
+
+// const Direction = {
+//   "Up": 0,
+//   "Down": 1,
+//   "Left": 2,
+//   "Right": 3,
+// }
+// 上記のような定義を以下のようにenumを使用して定数を定義できる
+
+// enum Direction {
+//   Up,
+//   Down,
+//   Left,
+//   Right
+// }
+
+// enum Directionを参照
+// let direction: Direction = Direction.Left
+// 2という数字が出力される
+// console.log(direction)
+
+// enumを代入した変数にバツのかたの値を代入しようとするとエラーとなる
+// direction = "Left"
+
+// 文字列ベースのEnum型
+// enum Direction {
+//   Up = "UP",
+//   Down = "DOWN",
+//   Left = "LEFT",
+//   Right = "RIGHT"
+// }
+
+// APIのパラメータとして文字列が渡されたケース
+// const value = "DOWN"
+// 文字列からEnum型に変換する
+// const enumValue = value as Direction
+
+// if (enumValue === Direction.Down) {
+//   console.log("Down is selected")
+// }
+// 文字列ベースの場合には自動インクリメント機能はないが
+// 文字列で渡される値とEnumの定数値を比較する際に便利
