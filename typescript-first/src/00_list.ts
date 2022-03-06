@@ -455,3 +455,31 @@ export {}
 // }
 // 文字列ベースの場合には自動インクリメント機能はないが
 // 文字列で渡される値とEnumの定数値を比較する際に便利
+
+
+// ジェネリック型
+// クラスや関数で使用する型を抽象化して外部から具体的な型を指定する
+// 汎用的なクラスや関数を実装するのに便利
+
+// Tはクラス内で使用する仮の型の名前
+// class Queue<T> {
+//   // 内部にTの型の配列を初期化する
+//   private array: T[] = []
+//   // Tの型の値を配列に追加する
+//   push(item: T) {
+//     this.array.push(item)
+//   }
+//   // Tの型の配列の最初の値を取り出す
+//   pop(): T | undefined {
+//     return this.array.shift()
+//   }
+// }
+
+// const queue = new Queue<number>() // 数値型に設定
+// queue.push(111)
+// queue.push(112)
+// queue.push("aaaa") // string型なのでエラー
+
+// let str = "foge"
+// str = queue.pop() // strはnumber型ではないのでエラー
+// Reactコンポーネントはジェネリック型のクラスとして定義されている
