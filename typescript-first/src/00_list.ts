@@ -483,3 +483,73 @@ export {}
 // let str = "foge"
 // str = queue.pop() // strはnumber型ではないのでエラー
 // Reactコンポーネントはジェネリック型のクラスとして定義されている
+
+// Union型とIntersection型
+// &や|を使用して型を定義できる
+// Union型は|を使用していずれかの型であればいい型を生成する
+// function printId(id: number | string) {
+//   console.log(id)
+// }
+
+// printId(11)
+// printId("11")
+
+// 型エイリアスとして定義することもできる
+// type Id = number | string
+
+// function printId(id: Id) {
+//   console.log(id)
+// }
+
+// type Identity = {
+//   id: number | string;
+//   name: string;
+// }
+
+// type Contact = {
+//   name: string;
+//   email: string;
+//   phone: string;
+// }
+
+// type IdentityOrContact = Identity | Contact
+
+// const id: IdentityOrContact = {
+//   id: "111",
+//   name: "田中",
+// }
+
+// const contact: IdentityOrContact = {
+//   name: "田中",
+//   email: "tanaka@example.com",
+//   phone: "02349",
+// }
+
+// Intersection型は複数の型をマージして1つになった型を生成する
+
+// type Identity = {
+//   id: number | string;
+//   name: string;
+// }
+
+// type Contact = {
+//   name: string;
+//   email: string;
+//   phone: string;
+// }
+
+// type Employee = Identity & Contact
+
+// const employee: Employee = {
+//   id: "222",
+//   name: "田中",
+//   email: "tanaka@example.com",
+//   phone: "07808"
+// }
+
+// 次はidがないためエラーになる
+// const employeeContact: Employee = {
+//   name: "田中",
+//   email: "tanaka@example.com",
+//   phone: "0392"
+// }
