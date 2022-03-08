@@ -568,3 +568,42 @@ export {}
 // function compare(a: string, b: string): -1 | 0 | 1 {
 //   return a === b ? 0 : a > b ? 1 : -1
 // }
+
+// never型
+// 決して発生しない値の種類を表す
+// 常に例外を発生させる関数などで決して値が返されることのない戻り値の型に使用
+// function error(message: string): never {
+//   throw new Error(message)
+// }
+
+// function foo(x: string| number | number[]): boolean {
+//   if(typeof x === 'string') {
+//     return true
+//   } else if (typeof x === 'number') {
+//     return false
+//   }
+//   return error('Never happens')
+// }
+
+// if文やswitch文でTypeScriptの型の条件分岐に漏れがないことを保証する
+// 将来的に定数が追加される可能性のあるenum型を定義
+// enum PageType {
+//   ViewProfile,
+//   EditProfile,
+//   ChangePassword,
+// }
+
+// const getTitleText = (type: PageType) => {
+//   switch (type) {
+//     case PageType.ViewProfile:
+//       return "Setting"
+//     case PageType.EditProfile:
+//       return "Edit Profile"
+//     case PageType.ChangePassword:
+//       return "Change Password"
+//     default:
+//     // never型を使用することで将来PageTypeに定数が追加された際にエラーが発生する
+//       const wrongType: never = type
+//       throw new Error(`${wrongType} is not in PageType`)
+//   }
+// }
