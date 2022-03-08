@@ -553,3 +553,18 @@ export {}
 //   email: "tanaka@example.com",
 //   phone: "0392"
 // }
+
+
+// リテラル型
+// |で区切り、決まった文字列や数値しか入らない型を生成する
+// 変数名: 許可データ1 | 許可データ2 | ...
+
+// let postStatus: "draft" | "published" | "deleted"
+// postStatus = "draft"
+// 以下は許可されていないデータが入っているためエラーとなる
+// postStatus = "drafts"
+
+// リテラル型は数字に対して使用することもできる
+// function compare(a: string, b: string): -1 | 0 | 1 {
+//   return a === b ? 0 : a > b ? 1 : -1
+// }
