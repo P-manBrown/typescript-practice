@@ -607,3 +607,24 @@ export {}
 //       throw new Error(`${wrongType} is not in PageType`)
 //   }
 // }
+
+
+// Optional Chaining
+// ネストされたオブジェクトのプロパティが存在するかの条件分岐を簡潔に記述できる
+
+// // nullになりうるsocialというプロパティの型を定義する
+// interface User {
+//   name: string
+//   social?: {
+//     facebook: boolean
+//     twitter: boolean
+//   }
+// }
+
+// let user: User
+
+// user = {name: "田中", social: {facebook: true, twitter: true}}
+// console.log(user.social?.facebook)
+// socialが存在しないケースでも実行時にエラーとならない
+// user = {name: "田中"}
+// console.log(user.social?.facebook)
