@@ -628,3 +628,16 @@ export {}
 // socialが存在しないケースでも実行時にエラーとならない
 // user = {name: "田中"}
 // console.log(user.social?.facebook)
+
+
+// Non-null Assertion Operator
+// nullでないことを示したいときに明示的に問題がないことを示せる
+// 変数などの後に!を記述する
+
+// userがnullの場合実行時エラーになる可能性があるプロパティへのアクセスはエラー
+// !を使用することでコンパイルエラーを抑制
+// function processUser(user?: User) {
+//   let s = user!.name
+// }
+
+// Non-null Assertionは実行時にはエラーが発生する可能性がある
