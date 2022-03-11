@@ -641,3 +641,35 @@ export {}
 // }
 
 // Non-null Assertionは実行時にはエラーが発生する可能性がある
+
+
+// 型ガード
+// 条件分岐で型チェックを行うとその条件分岐ブロック以降は変数の型を絞り込む
+
+// function addOne(value: number | string) {
+//   if (typeof value === "string") {
+//     return Number(value) + 1
+//   }
+//   return value + 1
+// }
+
+// console.log(addOne(10)) // 11
+// string型もnumber型であるとして扱われる
+// console.log(addOne("23")) // 24
+
+// 型ガードを使用するとasを使用する型アサーションよりも安全に型を利用できる
+
+// type User = {
+//   info?: {
+//     name: string;
+//     age: number;
+//   }
+// }
+
+// let response = {} // JSON形式のAPIレスポンスが代入されているものとする
+// const user = (response as any) as User
+
+// オプショナルプロパティは以下のuser.info.nameにアクセスしてもエラーなし
+// if (user.info) {
+//   console.log(user.info.name)
+// }
