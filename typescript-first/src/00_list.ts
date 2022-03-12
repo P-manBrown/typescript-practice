@@ -673,3 +673,38 @@ export {}
 // if (user.info) {
 //   console.log(user.info.name)
 // }
+
+
+// keyofオペレーター
+// その型が持つ各プロパティの型のUnion型を返す
+
+// interface User {
+//   name: string;
+//   age: number;
+//   email: string;
+// }
+
+// type UserKey = keyof User // 'name' | 'age' | 'email'というUnion型になる
+
+// const key1: UserKey = 'name'
+// 以下はエラーになる
+// const key2: UserKey = 'phone'
+
+// 第一引数に渡したオブジェクトの型のプロパティ名のUnion型と
+// 第二引数で渡す値の型が一致しない場合にはエラーとなる
+// 
+// function getProperty<T,K extends keyof T>(obj: T, key: K): T[K] {
+//   return obj[key]
+// }
+
+// const user: User = {
+//   name: "田中",
+//   age: 49,
+//   email: "takana@example.com"
+// }
+
+// nameは型のキーに存在するためstring型の値が返却される
+// const userName = getProperty(user, "name")
+
+// genderはオブジェクトのキーに存在しないためコンパイルエラー
+// const userGender = getProperty(user, "gender")
