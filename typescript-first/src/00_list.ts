@@ -724,3 +724,38 @@ export {}
 //   104: false,
 //   "v105": true, // エラー
 // }
+
+
+// readonly
+// readonlyプロパティを指定されたプロパティは変更不可になる
+
+// type User = {
+//   readonly name: string;
+//   readonly gender: string;
+// }
+
+// let user: User = {
+//   name: "田中",
+//   gender: "男"
+// }
+// 代入しようとするとエラーになる
+// user.gender = "女"
+
+// constが変数の代入に対して行う宣言であるのに対して
+// readonlyはオブジェクトやクラスのプロパティに対して行う宣言
+
+// Readonly型というジェネリック型も存在する
+
+// type User = {
+//   name: string;
+//   gender: string;
+// }
+
+// type UserReadonly = Readonly<User>
+
+// let user: User = {name: "田中", gender: "女"}
+// let userReadonly: UserReadonly = {name: "田中", gender: "女"}
+
+// user.name = "田中" // エラーなし
+// 以下はコンパイル時にエラーが発生する
+// userReadonly.name = "TANAKA"
