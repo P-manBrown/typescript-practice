@@ -759,3 +759,24 @@ export {}
 // user.name = "田中" // エラーなし
 // 以下はコンパイル時にエラーが発生する
 // userReadonly.name = "TANAKA"
+
+
+// unknown
+// anyと同じようにどのような値も代入できる
+// anyと異なり、代入された値は任意の関数やプロパティにアクセスできない
+// const x: unknown = 124
+// const y: unknown = "Hello"
+
+// 関数やプロパティにアクセスした際にunknown型のままではエラーとなる
+// console.log(x.toFixed(1))
+
+// 型安全な状況下で関数やプロパティにアクセスして実行可能
+// if (typeof x === "number") {
+//   console.log(x.toFixed(1))
+// }
+
+// if (typeof y === "string") {
+//   console.log(y.toLowerCase())
+// }
+
+// anyよりも安全
