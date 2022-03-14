@@ -780,3 +780,28 @@ export {}
 // }
 
 // anyよりも安全
+
+
+// 非同期のAsync/Await
+// function fetchFromServer(id: string): Promise<{success: boolean}> {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve({success: true})
+//     }, 100)
+//   })
+// }
+
+// 非同期処理を含むasync functionの戻り値の方はPromiseとなる
+// async function asyncFunc(): Promise<string> {
+//   const result = await fetchFromServer("111")
+//   return `The result: ${result.success}`
+// }
+
+// await構文を使用するにはasync functionの中で呼び出す必要がる
+
+// (async() => {
+//   const result = await asyncFunc()
+//   console.log(result)
+// })()
+
+// asyncFunc().then(result => console.log(result))
