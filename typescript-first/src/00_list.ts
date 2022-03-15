@@ -805,3 +805,22 @@ export {}
 // })()
 
 // asyncFunc().then(result => console.log(result))
+
+
+// 型定義ファル
+// 外部ライブラリなどの型情報は次の方法で作成する
+// @types/[ライブラリ名]として公開されているファイルをインストールする
+// 自分で.d.tsという拡張子の型定義ファイルを作成する
+
+// // ./lib/hello.js
+// exports.hello = function(name) {
+//   console.log(`Hello, ${name}`)
+// }
+
+// // ./lib/hello.d.ts
+// export function hello(name: string): void
+
+// TypeScriptとして動作する
+// import {hello} from "./lib/hello"
+
+// hello()
